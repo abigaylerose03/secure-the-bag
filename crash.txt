@@ -1,0 +1,8 @@
+Tue Mar 24 15:40:32 PDT 2020 Main Update Loop threw an exception:
+java.lang.ArrayIndexOutOfBoundsException: Index 293 out of bounds for length 289
+	at de.gurkenlabs.litiengine.graphics.Spritesheet.getSprite(Spritesheet.java:127)
+	at de.gurkenlabs.litiengine.graphics.Spritesheet.getSprite(Spritesheet.java:119)
+	at hygienegame.screens.GameScreen.render(GameScreen.java:34)
+	at de.gurkenlabs.litiengine.graphics.RenderComponent.render(RenderComponent.java:123)
+	at de.gurkenlabs.litiengine.GameLoop.process(GameLoop.java:87)
+	at de.gurkenlabs.litiengine.UpdateLoop.run(UpdateLoop.java:57)

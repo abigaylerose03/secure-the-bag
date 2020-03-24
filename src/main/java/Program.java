@@ -1,6 +1,7 @@
 import de.gurkenlabs.litiengine.Game;
 import hygienegame.Globals;
 import hygienegame.screens.GameScreen;
+import hygienegame.screens.MenuScreen;
 
 public class Program {
     // ctrl + option + o to remove unused import statements
@@ -10,8 +11,12 @@ public class Program {
         Game.info().setSubTitle("by Abigayle and Elle");
 
         Game.init(args);
+//
+//        Game.screens().add(new GameScreen(Globals.GAME_SCREEN));
+//        Game.screens().display(Globals.GAME_SCREEN);
+//        Game.world().camera().setFocus(200, 200);
 
-        Game.screens().add(new GameScreen(Globals.GAME_SCREEN));
+        Game.screens().add(new MenuScreen(Globals.GAME_SCREEN));
         Game.screens().display(Globals.GAME_SCREEN);
         Game.world().camera().setFocus(200, 200);
 
