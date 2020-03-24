@@ -16,7 +16,7 @@ public class GameScreen extends Screen {
         super(screenName);
 
         image = ImageSerializer.loadImage("img/image.png");
-        spritesheet = new Spritesheet(image, "img/image.png", 32, 32);
+        spritesheet = new Spritesheet(image, "img/image.png", 64, 64);
     }
 
     @Override
