@@ -1,4 +1,5 @@
 import de.gurkenlabs.litiengine.Game;
+import de.gurkenlabs.litiengine.gui.screens.Resolution;
 import hygienegame.Globals;
 import hygienegame.screens.GameScreen;
 import hygienegame.screens.MenuScreen;
@@ -13,13 +14,10 @@ public class Program {
         Game.init(args);
 
         Game.screens().add(new GameScreen(Globals.GAME_SCREEN));
+        Game.screens().add(new MenuScreen(Globals.MENU_SCREEN));
         Game.screens().display(Globals.GAME_SCREEN);
-        Game.world().camera().setFocus(200, 200);
 
-//        Game.screens().add(new MenuScreen(Globals.GAME_SCREEN));
-//        Game.screens().display(Globals.GAME_SCREEN);
-//        Game.world().camera().setFocus(200, 200);
 
-        Game.start();
+        Game.world().camera().setFocus(20, 20);
     }
 }

@@ -4,36 +4,41 @@ import de.gurkenlabs.litiengine.Game;
 import de.gurkenlabs.litiengine.graphics.Spritesheet;
 import de.gurkenlabs.litiengine.gui.screens.Screen;
 import de.gurkenlabs.litiengine.util.io.ImageSerializer;
+import hygienegame.GameMap;
+import hygienegame.GameState;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class GameScreen extends Screen {
+    public static final String TILESET_FILENAME = "img/tilesets/Futuristic_A1.png";
     private BufferedImage image;
     private Spritesheet spritesheet;
+    private GameState gameState;
 
     public GameScreen(String screenName) {
         super(screenName);
 
-        image = ImageSerializer.loadImage("img/image.png");
-        spritesheet = new Spritesheet(image, "img/image.png", 64, 64);
+        image = ImageSerializer.loadImage(TILESET_FILENAME);
+        spritesheet = new Spritesheet(image, TILESET_FILENAME, 64, 64);
+        gameState = new GameState();
     }
 
     @Override
     public void render(Graphics2D g) {
         super.render(g);
 
+        drawMap(g, gameState.getMap());
 
+    }
 
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 6; j++) {
-                int sprite = (int)(Game.time().sinceGameStart() / 200);
-                sprite += i;
-                sprite += j * 6;
+    private void drawMap(Graphics2D g, GameMap map) {
+        for (int x = 0; x < map.getWidth(); x++) {
+            for (int y = 0; y < map.getHeight(); y++) {
+                int sprite = map.getTiles()[x][y].getTileType().getSprite();
 
-                Game.graphics().renderImage(g, spritesheet.getSprite(sprite), i * 32, j * 32);
+                Game.graphics().renderImage(g, spritesheet.getSprite(sprite), x * 200, y * 200);
             }
         }
-
     }
 }
